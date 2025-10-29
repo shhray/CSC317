@@ -1,0 +1,423 @@
+/* ==========================================================================
+   AI-3.css — Modern Editorial Portfolio Theme (Light + Minimal Dark Override)
+   Generated to be validation-safe and semantic-HTML friendly
+   ========================================================================== */
+
+/* ------------------------------
+   Tokens
+------------------------------ */
+:root {
+  --bg: #f7f8fb;
+  --panel: #ffffff;
+  --text: #1a1d29;
+  --muted: #5a6376;
+  --accent: #3b82f6;
+  --border: #e4e7ee;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+
+  --radius: 14px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 1px rgba(16, 24, 40, 0.04);
+  --shadow-md: 0 6px 16px rgba(16, 24, 40, 0.08);
+  --transition: 180ms ease;
+}
+
+/* Dark mode (minimal, optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1220;
+    --panel: #171a2b;
+    --text: #e9ecf4;
+    --muted: #a4adc2;
+    --accent: #6aa5ff;
+    --border: #23273c;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ------------------------------
+   Base
+------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Links and interactive states */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+button,
+[role="button"] {
+  font: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ------------------------------
+   Layout Utilities
+------------------------------ */
+
+.container {
+  width: min(1120px, 92vw);
+  margin-inline: auto;
+  padding-inline: var(--space-2);
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.section {
+  margin-block: var(--space-5);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-3);
+}
+
+/* ------------------------------
+   Typography
+------------------------------ */
+
+h1, h2, h3 {
+  margin-top: 0;
+  line-height: 1.25;
+}
+
+h1 { font-size: clamp(1.875rem, 1.4rem + 1.5vw, 2.75rem); }
+h2 { font-size: clamp(1.5rem, 1.2rem + 0.9vw, 2rem); }
+h3 { font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem); }
+
+.muted { color: var(--muted); }
+
+/* ------------------------------
+   Navigation (sticky)
+------------------------------ */
+
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklab, var(--panel) 94%, transparent);
+  backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-nav .nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+}
+
+.site-nav .brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  color: var(--text);
+  transition: background var(--transition), transform var(--transition), color var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background: var(--border);
+}
+
+.site-nav a[aria-current="page"],
+.site-nav .is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ------------------------------
+   Hero / Intro
+------------------------------ */
+
+.header-hero {
+  padding-block: clamp(2rem, 6vh, 4rem);
+}
+
+.header-hero .intro {
+  display: grid;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.header-hero .lead {
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+/* Styled image (requirement: at least one image styled) */
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transform: translateZ(0);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-photo:hover,
+.profile-photo:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.12);
+}
+
+/* ------------------------------
+   Common Section Patterns
+------------------------------ */
+
+.section-header {
+  margin-bottom: var(--space-3);
+}
+.section-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Cards list, used by education/experience */
+.list-cards {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* A simple media object pattern for entries */
+.entry {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.entry:hover,
+.entry:focus-within {
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.entry .meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ------------------------------
+   Projects Grid
+------------------------------ */
+
+.projects-grid {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: 1fr;
+}
+.project-card {
+  display: grid;
+  gap: var(--space-2);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in oklab, var(--accent) 30%, var(--border));
+}
+
+.project-thumb {
+  aspect-ratio: 16 / 9;
+  border-radius: calc(var(--radius) - 4px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ------------------------------
+   Skills
+------------------------------ */
+
+.skills-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+.skill {
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* ------------------------------
+   Buttons & Badges
+------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition), border-color var(--transition), color var(--transition);
+}
+.btn:hover,
+.btn:focus {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+}
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn.primary:hover,
+.btn.primary:focus {
+  filter: brightness(1.03);
+}
+
+/* ------------------------------
+   Footer
+------------------------------ */
+
+footer.site-footer {
+  margin-top: var(--space-5);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+footer.site-footer a { color: inherit; }
+footer.site-footer a:hover,
+footer.site-footer a:focus { color: var(--accent); }
+
+/* ------------------------------
+   Responsive
+------------------------------ */
+
+@media (min-width: 640px) {
+  .header-hero .intro {
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .list-inline {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-3);
+  }
+}
+
+/* ------------------------------
+   Section ID helpers (works if IDs exist)
+------------------------------ */
+
+#about    .section-header h2::after,
+#education .section-header h2::after,
+#experience .section-header h2::after,
+#projects .section-header h2::after,
+#skills   .section-header h2::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 44px;
+  margin-top: var(--space-1);
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0.2;
+}
+
+/* ------------------------------
+   Small helpers
+------------------------------ */
+
+.hidden { display: none !important; }
+.center { text-align: center; }
+.pad    { padding: var(--space-3); }
