@@ -1,0 +1,247 @@
+/* ai-2.css — Accessible Betty Boop Theme (Final Version) */
+
+/* ---------- Font Import ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap");
+
+/* ---------- Base Styles ---------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Baloo 2", cursive;
+  background-color: #fffdfd;
+  color: #111;
+  scroll-behavior: smooth;
+  line-height: 1.7;
+
+  /* Background pattern: soft red hearts + polka dots */
+  background-image: radial-gradient(
+      circle at 10px 10px,
+      #fff 2px,
+      transparent 2px
+    ),
+    radial-gradient(circle at 30px 30px, #fff 2px, transparent 2px),
+    url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='0' y='15' font-size='16' fill='%23c40024'%3E%E2%99%A5%3C/text%3E%3C/svg%3E");
+  background-size: 40px 40px, 40px 40px, 80px 80px;
+  background-position: 0 0, 20px 20px, 0 0;
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* ---------- Header ---------- */
+header {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  border-bottom: 5px solid #c40024;
+}
+
+header h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px #c40024;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ffccd5; /* light pink accent, still 5:1 contrast on black */
+}
+
+/* ---------- Sections ---------- */
+section {
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  background-color: #fffdfd;
+  border-radius: 20px;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 #c40024;
+}
+
+section:nth-child(even) {
+  background-color: #fff3f3;
+}
+
+h2,
+h3 {
+  color: #c40024;
+  text-shadow: 1px 1px #000;
+  border-bottom: 2px dashed #000;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+p {
+  color: #1a1a1a;
+  background-color: transparent;
+}
+
+/* Lists */
+ul {
+  list-style-type: "♥ ";
+  padding-left: 1.5rem;
+  color: #1a1a1a;
+}
+
+/* ---------- Theme Switcher ---------- */
+.theme-switcher {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem;
+  border-bottom: 3px solid #c40024;
+}
+
+.theme-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.theme-button {
+  background-color: #c40024;
+  border: 3px solid #000;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: "Baloo 2", cursive;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
+}
+
+/* ---------- Heart Animation ---------- */
+@keyframes hearts {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.theme-button::before,
+.theme-button::after {
+  content: "♥";
+  position: absolute;
+  color: #fff;
+  font-size: 1.2rem;
+  opacity: 0;
+}
+
+.theme-button:hover::before {
+  left: 40%;
+  animation: hearts 1s ease forwards;
+}
+
+.theme-button:hover::after {
+  right: 40%;
+  animation: hearts 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.theme-button:hover {
+  background-color: #000;
+  color: #c40024;
+  transform: scale(1.05);
+}
+
+.theme-button:focus-visible {
+  outline: 3px dashed #c40024;
+  outline-offset: 3px;
+}
+
+/* ---------- Profile Photo ---------- */
+#Profile-Photo {
+  text-align: center;
+}
+
+#Profile-Photo img {
+  border: 5px solid #c40024;
+  border-radius: 50%;
+  box-shadow: 4px 4px 0 #000;
+  margin-bottom: 1rem;
+}
+
+.Name {
+  color: #000;
+  font-size: 2rem;
+  text-shadow: 1px 1px #c40024;
+}
+
+/* ---------- Projects ---------- */
+.project {
+  background-color: #fffdfd;
+  border: 2px solid #000;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 4px 4px 0 #c40024;
+}
+
+.project h3 {
+  color: #c40024;
+}
+
+/* ---------- Links ---------- */
+a {
+  color: #c40024;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover,
+a:focus {
+  color: #000;
+  text-decoration: underline wavy #c40024;
+}
+
+a:focus-visible {
+  outline: 3px dashed #000;
+  outline-offset: 3px;
+}
+
+/* ---------- Contact Section ---------- */
+#Contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+#Contact li {
+  margin: 0.5rem 0;
+}
+
+/* ---------- Scroll Behavior ---------- */
+main {
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  section {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+}

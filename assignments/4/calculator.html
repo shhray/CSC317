@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/calculator.css">
+</head>
+<body class="dark-theme">
+  <!-- simple back link for navigation requirement -->
+  <a href="index.html" class="back-link">← Back to Portfolio</a>
+
+  <!-- button for the extra credit theme toggle -->
+  <button id="themeToggle" class="theme-toggle-btn">Toggle Theme</button>
+
+  <main class="calculator-page">
+    <div class="calculator">
+      <!-- main display where numbers show up -->
+      <div class="calculator-display" id="display">0</div>
+
+      <!-- memory indicator, lights up when memory is not zero -->
+      <div id="memory-indicator" class="memory-indicator"></div>
+
+      <div class="calculator-buttons">
+        <!-- memory row (extra credit) -->
+        <button class="btn btn-utility" data-action="mc">MC</button>
+        <button class="btn btn-utility" data-action="mr">MR</button>
+        <button class="btn btn-utility" data-action="mplus">M+</button>
+        <button class="btn btn-utility" data-action="mminus">M-</button>
+
+        <!-- top row utilities -->
+        <button class="btn btn-utility" data-action="clear">AC</button>
+        <button class="btn btn-utility" data-action="toggle-sign">+/-</button>
+        <button class="btn btn-utility" data-action="percent">%</button>
+        <button class="btn btn-operator" data-action="divide">÷</button>
+
+        <!-- number and operator rows -->
+        <button class="btn btn-number" data-number="7">7</button>
+        <button class="btn btn-number" data-number="8">8</button>
+        <button class="btn btn-number" data-number="9">9</button>
+        <button class="btn btn-operator" data-action="multiply">×</button>
+
+        <button class="btn btn-number" data-number="4">4</button>
+        <button class="btn btn-number" data-number="5">5</button>
+        <button class="btn btn-number" data-number="6">6</button>
+        <button class="btn btn-operator" data-action="subtract">-</button>
+
+        <button class="btn btn-number" data-number="1">1</button>
+        <button class="btn btn-number" data-number="2">2</button>
+        <button class="btn btn-number" data-number="3">3</button>
+        <button class="btn btn-operator" data-action="add">+</button>
+
+        <!-- bottom row -->
+        <button class="btn btn-number btn-zero" data-number="0">0</button>
+        <button class="btn btn-number" data-action="decimal">.</button>
+        <button class="btn btn-operator" data-action="equals">=</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts/calculator.js"></script>
+</body>
+</html>
