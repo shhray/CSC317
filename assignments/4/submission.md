@@ -4,7 +4,7 @@
 ## Links
 
 - GitHub Repository: https://github.com/shhray
-- Live GitHub Pages (Assignment 4): https://yourusername.github.io/CSC317/assignments/4/
+- Live GitHub Pages (Assignment 4): https://shhray.github.io/CSC317/assignments/4
 
 ## Implementation Overview
 
@@ -23,4 +23,4 @@ One challenge was keeping track of state when chaining multiple operations. I fi
 
 ## Acknowledgments
 
-I used the course materials and MDN Web Docs as references. I also used ChatGPT to help me plan the steps and double check my logic.
+I used the course materials and MDN Web Docs as references. I also used AI tools to help me plan the steps and double check my logic.
