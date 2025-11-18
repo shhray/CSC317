@@ -4,7 +4,7 @@
 ## Links
 
 - GitHub Repository: https://github.com/shhray
-- Live GitHub Pages (Assignment 4): https://shhray.github.io/CSC317/assignments/4
+- Live GitHub Pages (Assignment 4): https://shhray.github.io/CSC317/assignments/4/calculator.html
 
 ## Implementation Overview
 
